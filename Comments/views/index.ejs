@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Register Account</title>
+    <script>
+        function Togglecode(){
+            const role = document.getElementById('role').value;
+            const secreteCode = document.getElementById('secreteCode');
+            if(role === 'admin'){
+                secreteCode.style.display = 'block';
+            }else{
+                secreteCode.style.display = 'none';
+        }
+    }
+    </script>
+</head>
+<body class="bg-gray-900  ">
+    <div class="w-full min-h-screen flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h1 class="text-2xl font-bold mb-6 mt-3 text-center text-gray-900">Register Account</h1>
+
+            <form action="/register" method="post" class="space-y-4">
+
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                    <input type="text" name="username" id="username" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
+                    <input type="number" name="age" id="age" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" name="password" id="password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
+                    <select id="role" name="role" required  onchange="Togglecode()" class="mt-1 block
+                    w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                     </select>
+                </div>
+                <div id="secreteCode" style="display: none;" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <input type="text" name="secrete" placeholder="Enter secrete code" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                
+                    </div>
+                <div>
+                    <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<!-- 
+<script>
+    function checkPasswordStrength() {
+        const password = document.getElementById('password').value;
+        const strengthIndicator = document.getElementById('password-strength');
+        
+        // Reset indicator
+        strengthIndicator.textContent = '';
+        strengthIndicator.className = '';
+        
+        if (password.length === 0) return;
+        
+        // Check length
+        if (password.length < 8) {
+            strengthIndicator.textContent = 'Too short';
+            strengthIndicator.className = 'weak';
+            return;
+        }
+        
+        // Check complexity
+        const hasUpper = /[A-Z]/.test(password);
+        const hasLower = /[a-z]/.test(password);
+        const hasNumber = /[0-9]/.test(password);
+        const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+        
+        let strength = 0;
+        if (hasUpper) strength++;
+        if (hasLower) strength++;
+        if (hasNumber) strength++;
+        if (hasSpecial) strength++;
+        
+        if (strength < 3) {
+            strengthIndicator.textContent = 'Weak';
+            strengthIndicator.className = 'weak';
+        } else if (strength === 3) {
+            strengthIndicator.textContent = 'Medium';
+            strengthIndicator.className = 'medium';
+        } else {
+            strengthIndicator.textContent = 'Strong';
+            strengthIndicator.className = 'strong';
+        }
+    }
+    </script>
+    
+    <style>
+    .weak { color: red; }
+    .medium { color: orange; }
+    .strong { color: green; }
+    </style>
+    
+    <!-- Add this to your form -->
+    <!-- Password: <input type="password" id="password" name="password" oninput="checkPasswordStrength()">
+    <span id="password-strength"></span> --> -->

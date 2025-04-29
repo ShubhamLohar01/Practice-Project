@@ -1,0 +1,200 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+   background: rgb(rgb(3, 65, 107));
+   
+}
+body{
+    background-color:rgb(32, 30, 76);;
+    color: white;
+    /* justify-items: center; */
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    margin: 120px auto 0 auto;
+    max-width: 500px;
+    margin-top: 100px;
+    align-items: center;
+
+}
+.stats-container{
+    padding: 31px;
+    border-radius: 20px;
+    border: 2px solid purple;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+}
+
+.progress-bar{
+    width: 100%;
+    height: 10px;
+    background-color:rgb(29, 24, 57);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+#progress{
+    width: 0%;
+    background-color: aqua;
+    height: 10px;
+    border-radius: 7px;
+    transition:  all 0.4s ease;
+
+}
+.details{
+    width: 100%;
+}
+form{
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    gap: 13px;
+}
+input{
+    flex: 1;
+    padding: 12px;
+    background: rgb(29 13 38);;
+    border-radius: 10px;
+    border: 1px solid white;
+    color: white;
+    font-family:cursive;
+    outline: none;
+
+
+}
+button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: #bc67d8;
+    color:white;
+    font-size:30px ;
+    font-weight: bold;
+    outline: none;
+}
+#numbers{
+  
+    width: 100px;
+    height: 100px;
+    background: #bd46ff;
+    display: flex;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    font-size: 30px;
+    justify-content: center;
+    font-weight: bold;
+}
+#task-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    width: 100%;
+    list-style: none;
+}
+.taskItem{
+    width: 100%;
+    display: flex;
+    font-size: larger;
+    font-family: cursive;
+    font-weight: 500;
+    background-color: #bd46ff;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+.task{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.task input {
+    width: 20px;
+    height: 20px;
+}
+.taskItem img{
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.task.completed{
+    text-decoration: line-through;
+    color: aquamarine;
+}
+
+/* From Uiverse.io by OnCloud125252 */ 
+/* stylish button styling */
+
+#newTask {
+    /* Config start */
+    --plus_sideLength: 2.5rem;
+    --plus_topRightTriangleSideLength: 0.9rem;
+    /* Config end */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    width: var(--plus_sideLength);
+    height: var(--plus_sideLength);
+    background-color: #000000;
+    overflow: hidden;
+  }
+  
+  #newTask::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+  }
+  
+  #newTask:hover {
+    cursor: pointer;
+  }
+  
+  #newTask:hover::before {
+    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+  }
+  
+  #newTask:focus-visible::before {
+    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+  }
+  
+  #newTask>.plusIcon {
+    fill: white;
+    width: calc(var(--plus_sideLength) * 0.7);
+    height: calc(var(--plus_sideLength) * 0.7);
+    z-index: 1;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+  }
+  
+  #newTask:hover>.plusIcon {
+    fill: black;
+    transform: rotate(180deg);
+  }
+  
+  #newTask:focus-visible>.plusIcon {
+    fill: black;
+    transform: rotate(180deg);
+}

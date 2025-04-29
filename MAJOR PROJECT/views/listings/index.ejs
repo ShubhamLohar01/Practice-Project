@@ -1,0 +1,36 @@
+<% layout('/layouts/boilerplate') %>
+
+
+<body class="bg-light">
+    <div class="container py-4">
+        <h1 class="text-center mb-4">All Listings</h1>
+        <!-- <form method="get" action="/listings/new" class="text-center mb-4">
+            <button class="btn btn-primary">Create New Listing</button>
+        </form> -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            <% if (allListings.length === 0) { %>
+                <h3 class="text-center text-muted col-12">No listings available</h3>
+            <% } %>
+            
+            <% for(let listing of allListings) { %>
+            <div class="col">
+                <a href="/listings/<%= listing._id %>" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm">
+                        <img src="<%= listing.image.url %>" alt="listing__image" class="card-img-top bg-white 
+                        opacity-0% hover:opacity-20% transition-opacity duration-300" style="height: 15rem; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= listing.title %></h5>
+                            <p class="card-text text-muted"><%= listing.description %></p>
+                            <p class="card-text text-primary fw-bold">&#8377;<%= listing.price.toLocaleString("en-IN") %>/night</p>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <small class="text-muted"><%= listing.location %>, <%= listing.country %></small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

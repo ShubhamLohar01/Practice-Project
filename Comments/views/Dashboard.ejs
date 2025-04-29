@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Comments</title>
+</head>
+<body class="bg-gray-900 text-gray-100 overflow-x-hidden">
+    <div class="w-full flex flex-col  ml-9 p-4 h-screen">
+        <h3 class="text-4xl font-bold mb-9 mt-3 text-indigo-400">Welcome to the Comments Dashboard</h3>
+        <form method="post" action="/comment" class=" bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+            <label for="comment" class="block text-lg font-medium text-gray-300 mb-2">Your Comment:</label>
+            <textarea 
+                name="content" 
+                id="comment" 
+                placeholder="Type your new comment here..." 
+                required 
+                class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-gray-900 sm:text-sm"
+            ></textarea>
+
+            <input 
+                type="submit" 
+                value="Create a New Comment" 
+                class="w-full py-3 mt-4 rounded-md bg-indigo-600 text-white font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300"
+            >
+        </form>
+        <div>
+            <form action="/logout" method="get">
+            
+                <button  class="bg-red-500 text-white px-2 py-1 rounded" type="submit" >Logout</button>
+             </form>
+            <h3 class="text-2xl font-semibold text-indigo-400 m-4">Your Comments</h3>
+            <% comments.forEach(function(comment){ %>
+            <div class="bg-gray-800 p-4 rounded-lg shadow-md mb-4 w-full max-w-xl">
+                <h4 class="text-lg font-bold text-indigo-300 mb-2"><%=comment.author ? comment.author.email : 'Anonymous' %></h4>
+
+                <p class="text-gray-300 mb-4"><%= comment.content %></p>
+                <p class="text-lg text-2xl text-gray-500">Likes: <%= comment.likes %></p>
+
+                <div class="flex justify-between space-x-4">
+                    <!-- Like Button -->
+                    <form action="/comment/<%= comment._id %>/like" method="POST">
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200">
+                            Like
+                        </button>
+                    </form>
+
+                    <!-- Edit Button -->
+                    <% if (comment.author &&comment.author._id.toString() === user._id.toString()) { %>
+                        <form action="/comment/<%= comment._id %>/edit" method="POST">
+                            <input type="text" name="content"  required>
+                            <button type="submit" class="bg-yellow-500 text-white px-2 py-1 rounded">Edit</button>
+                        </form>
+                    <% } %>
+
+                    <!-- Delete Button -->
+                    <% if (user.role === "admin") { %>
+                        <form action="/comment/<%= comment._id %>/delete" name="delete" method="POST">
+                            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-200">
+                                Delete
+                            </button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<style>
+  .btn-nav{
+    background-color: rgb(255, 0, 0);
+    color: white;
+   border-radius: 26px ;
+   padding: 0 1rem 0 1rem;
+  }
+</style>
+
+<nav class="navbar navbar-expand-md sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="/listings">
+        <img src="/hotel.png"  width="30" height="25" class="me-2">
+      
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          
+          
+          <a class="nav-link" href="/listings">
+            <h5>Explore</h5></a>
+
+        </div>
+        <div class="ms-auto ">
+        
+          <form class="d-flex" role="search" action="/listings" method="GET">
+            <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+            <button class="btn-nav " type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+                Search</button>
+          </form>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/listings/new"><b>Add New</b></a>
+         <%   if(!currUser){ %>
+          <a class="nav-link "  href="/signup"> <b>SignUp</b></a>
+          <a class="nav-link" href="/login"><b>Login</b></a>
+            <% }else { %>
+          <a class="nav-link" href="/logout"><b>Logout</b></a>
+          <% } %>
+
+        </div>
+      </div>
+    </div>
+  </nav>

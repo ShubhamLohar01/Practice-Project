@@ -1,0 +1,21 @@
+.main {
+  background-color: #1A232E;  /* Custom background color */
+  height: 100vh;              /* h-screen */
+  padding-top: 1.5rem;        /* py-6 (24px) */
+  padding-bottom: 1.5rem;
+  position: relative;         /* relative */
+  color: white;               /* text-white */
+  overflow: hidden;           /* overflow-hidden */
+  display: flex;              /* flex */
+  flex-direction: column;     /* flex-col */
+  justify-content: space-between; /* justify-between */
+  align-items: center;        /* align-middle (Incorrect in Tailwind, should be items-center) */
+}
+
+/* Responsive padding for small screens */
+@media (min-width: 640px) {  /* sm:px-28 */
+  .main {
+    padding-left: 7rem;  /* 28 * 4px = 112px */
+    padding-right: 7rem;
+  }
+}

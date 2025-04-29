@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Eddoxus Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.gradient-01{
+  position: absolute;
+  width: 340px;
+  height: 248px;
+  top: 0;
+  left: 129px;
+  background-color: #ca00ff;
+  filter: blur(145px);
+}
+.gradient-02{
+  position: absolute;
+  width: 300px;
+  height: 238px;
+  top: -5rem;
+  right: 0px;
+ background-color: #7aebfb;
+  filter: blur(175px);
+}

@@ -1,0 +1,76 @@
+<% layout('/layouts/boilerplate') %>
+
+    <body class="bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h3 class="text-center mb-4">Create New Listing</h3>
+                    <form method="POST" action="/listings" class="bg-white p-4 rounded shadow-sm needs-validation"
+                        novalidate enctype="multipart/form-data">
+                       
+
+                        <!-- Title Field -->
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title" name="listing[title]" required>
+                            <div class="invalid-feedback">
+                                Please provide a title.
+                            </div>
+                        </div>
+
+                        <!-- Description Field -->
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" name="listing[description]"
+                                required></textarea>
+                            <div class="invalid-feedback">
+                                Please provide a description.
+                            </div>
+                        </div>
+
+                        <!-- Image URL Field -->
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Upload  Image </label>
+                            <input type="file" class="form-control"
+                             id="image" name="listing[image]"  required>
+                             
+                         
+                        </div>
+
+                        <!-- Price Field -->
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="price" name="listing[price]" required>
+                            <div class="invalid-feedback">
+                                Please provide a price.
+                            </div>
+                        </div>
+
+                        <!-- Country Field -->
+                        <div class="mb-3">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country" name="listing[country]" required>
+                            <div class="invalid-feedback">
+                                Please provide a country.
+                            </div>
+                        </div>
+
+                        <!-- Location Field -->
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="location" name="listing[location]" required>
+                            <div class="invalid-feedback">
+                                Please provide a location.
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn  btn-warning py-2 px-4">
+                            Add Listing
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+       
+    </body>
